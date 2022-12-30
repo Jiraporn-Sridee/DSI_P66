@@ -23,6 +23,7 @@
 
 .div3 {
     grid-area: 2 / 4 / 8 / 7;
+    background: #c8c8c8;
 }
 
 .scroll {
@@ -66,4 +67,18 @@
 
 .idiv3 {
     grid-area: 1 / 4 / 2 / 5;
+    display: flex;
+    margin: auto;
+}
+
+.idiv3 button {
+    background: none;
+    border: none;
+    color: #535353;
+    font-size: 20px;
+}
+
+
+.idiv3 button:hover {
+    color: #767676;
 }

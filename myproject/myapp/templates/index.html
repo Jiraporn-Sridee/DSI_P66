@@ -2,6 +2,7 @@
 
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/e344495af0.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href='{% static "css/home.css" %}'>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
@@ -24,7 +25,7 @@
         <a href="">Contact</a>
     </div>
     <div class="navbar_log">
-        <a href="{% url 'cart' %}">Card</a>
+        <a href="{% url 'cart' %}"><i class="fa-solid fa-bag-shopping" style="margin-top: 2px;" ></i></a>
         {% if user.is_authenticated %}
         <a href="" style="padding: 14px 50px;">{{user.username}}</a>
         {% else %}
