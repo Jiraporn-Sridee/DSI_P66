@@ -1,0 +1,95 @@
+{% load static %}
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href='{% static "css/home.css" %}'>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+</style>
+</head>
+
+<div class="navbar">
+    <div class="logo">
+        <a href="" style="padding-right: 55px;padding-left: 55px;">∫∑ SRIDEE SHOP</a>
+    </div>
+    <div class="navbar_menu">
+        <a href="">Home</a>
+        <a href="">iPhone</a>
+        <a href="">iPad</a>
+        <a href="">AirPods</a>
+        <a href="">Contact</a>
+    </div>
+    <div class="navbar_log">
+        <a href="{% url 'cart' %}">Card</a>
+        {% if user.is_authenticated %}
+        <a href="" style="padding: 14px 50px;">{{user.username}}</a>
+        {% else %}
+        <a href="">Login</a>
+        <a href="">Sign up</a>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="center" style="margin-top: 70px;">
+    <h3>แหล่งรวมอุปกรณ์เสริมผลิตภัณฑ์</h3>
+    <h2 class="headline">ของ Apple ที่ดีที่สุด</h2>
+    <img src="/static/media/pic1.jpg" style="border-radius: 50px;">
+    
+
+</div>
+<div class="center">
+    <h3>เลือกเคสในแบบที่ต้องการ</h3>
+</div>
+        
+<div class="container" style="margin: 0% 20%;">
+    <div class="row">
+        {% for i in fe %}
+        <div class="column">
+            <img src="{{i}}" class="image" style="width:100%;background-color: white;">
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="center">
+    <h3>สินค้าใหม่ล่าสุด</h3>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for i in rec %}
+        <div class="column">
+            <a href="{% url 'photo' i.id %}"><img src="{{i.image.url}}" class="image" style="width:100%;background-color: white;"></a>
+            <p style="text-align: center;margin-bottom: -18px;font-size: 11px;color: orangered;">{{i.presub}}</p>
+            <p style="text-align: center;margin-bottom: 11px;">{{i.name}}</p>
+            <p style="text-align: center;margin: -10px 0px;">฿{{i.price}}</p>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="center" style="margin-top: 70px;">
+    <h3>สินค้าขายดี Best Seller</h3>
+</div>
+<div class="container">
+    <div class="row">
+        {% for i in best %}
+        <div class="column">
+            <img src="{{i}}" class="image" style="width:100%;background-color: white;">
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 70px;
+    background-color: aqua;
+}
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 7;
+    display: flex;
+}
+
+.div1t {
+    margin: auto;
+}
+
+.div2 {
+    grid-area: 2 / 1 / 8 / 4;
+}
+
+.div3 {
+    grid-area: 2 / 4 / 8 / 7;
+}
+
+.scroll {
+    height: 520px;
+    overflow: auto;
+}
+
+
+.iparent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(226,226,226,1) 61%, rgba(194,194,194,1) 180%);;
+}
+
+.idiv1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.idiv2 {
+    grid-area: 1 / 2 / 2 / 4;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.idiv2i {
+    display: flex;
+    text-align: end;    
+}
+
+.idiv2 a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.idiv3 {
+    grid-area: 1 / 4 / 2 / 5;
+}

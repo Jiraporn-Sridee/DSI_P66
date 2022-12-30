@@ -1,0 +1,79 @@
+{% load static %}
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href='{% static "css/home.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "css/cart.css" %}'>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="" style="padding-right: 55px;padding-left: 55px;">∫∑ SRIDEE SHOP</a>
+        </div>
+        <div class="navbar_menu">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="">iPhone</a>
+            <a href="">iPad</a>
+            <a href="">AirPods</a>
+            <a href="">Contact</a>
+        </div>
+        <div class="navbar_log">
+            <a href="{% url 'cart' %}">Card</a>
+            {% if user.is_authenticated %}
+            <a href="" style="padding: 14px 50px;">{{user.username}}</a>
+            {% else %}
+            <a href="">Login</a>
+            <a href="">Sign up</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="center" style="margin-top: 90px;">
+        <h1 style="font-weight: 300;">รายการในกระเป๋าของคุณ</h1>
+    </div>
+    {% if price_total != 0 %}
+    <div class="center">
+        <div class="parent">
+            <div class="div1">
+                <div class="div1t">
+                    <a href="">Shipping Card</a>
+                </div>
+                <div class="div1t">
+                    <a href="">Transaction</a>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="scroll">
+
+                    {% for item, total, quantity in items %}
+                    <div class="iparent">
+                        <div class="idiv1">
+                            <img src="{{item.image.url}}" style="width: 100%;">
+                        </div>
+                        <div class="idiv2"> 
+                            <div class="idiv2i">
+
+                                <a href="{% url 'photo' item.id %}">{{item.name}}</a>
+                            </div>
+                            <p>ราคา {{item.price}}฿ x {{quantity}} ชิ้น</p>
+                            <p>ราคาทั้งหมด {{total}}฿</p>
+                        </div>
+                        <div class="idiv3">
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="div3"></div>
+        </div>
+    </div>
+        {% else %}
+        <p>No</p>
+        {% endif %}
+
+</body>
+
