@@ -41,10 +41,16 @@
         <div class="parent">
             <div class="div1">
                 <div class="div1t">
-                    <a href="">Shipping Card</a>
+                    <a>สินค้าในกระเป๋า</a>
                 </div>
+            </div>
+            <div class="div1-2">
                 <div class="div1t">
-                    <a href="">Transaction</a>
+                    {% if user.is_authenticated %}
+                    <a href="">ประวัติการสั่งซื้อ</a>
+                    {% else %}
+                    <a href="">เข้าสู่ระบบเพื่อ ดูประวัติการสั่งซื้อ</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="div2">
@@ -68,7 +74,11 @@
                                 {% csrf_token %}
                                 <input type="hidden" name="name" value="{{item.name}}">
                                 <input type="hidden" name="price" value="{{item.price}}">
+                                {% if quantity == 1 %}
+                                <button class="fa-solid fa-trash-can" type="submit"></button>
+                                {% else %}
                                 <button class="fa-solid fa-circle-minus" type="submit"></button>
+                                {% endif %}
                             </form>
                             <h3 style="padding: 10px">{{quantity}}</h3>
                             <form action="{% url 'addon' %}" method="post" style="margin: auto;">
@@ -82,12 +92,20 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="div3"></div>
+            <div class="div3">
+                <div class="center">
+                    <h3>ชำระเงินผ่าน Prompt Pay</h3>
+                    <img src="{% url 'qr' mobile=mobile amount=amount %}" style="width: 30%;"> 
+                    <h2>รวมทั้งหมด {{price_total}}฿</h2>
+
+                </div>
+            </div>
         </div>
     </div>
         {% else %}
         <div class="center">
             <h2 style="font-size: 50px; font-weight: 300;">ไม่มีสินค้าในกระเป๋าของคุณ</h2>
+            <a href="{% url 'home' %}" style="font-size: 30px; color: #205eff;">เลือกซื้อสินค้าต่อ</a>
         </div>
         {% endif %}
 
