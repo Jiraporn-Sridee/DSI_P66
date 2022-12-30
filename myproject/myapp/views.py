@@ -71,7 +71,7 @@ def cart (request):
         'items': items, 
         'total': info_item[0],
         'price_total': sum(info_item[0]),
-        "mobile":"0955176515",
+        "mobile":"0962139949",
         "amount": float(sum(info_item[0])),
         "form":form}
     return render(request, 'cart.html', context)
