@@ -71,7 +71,7 @@ def cart (request):
         'items': items, 
         'total': info_item[0],
         'price_total': sum(info_item[0]),
-        "mobile":"0863624849",
+        "mobile":"0955176515",
         "amount": float(sum(info_item[0])),
         "form":form}
     return render(request, 'cart.html', context)
@@ -268,7 +268,7 @@ def get_qr(request,mobile="",nid="",amount=""):
 
 def checkout(request):
     context={
-        "mobile":"0863624849", #seller's mobile
+        "mobile":"0955176515", #seller's mobile
         "amount": 0.1
     }
     return render(request, 'checkout.html', context)
