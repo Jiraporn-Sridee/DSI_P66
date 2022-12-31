@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 
 <head>
@@ -10,80 +11,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
-<style>
 
-</style>
-</head>
 
-<div class="navbar">
-    <div class="logo">
-        <a href="" style="padding-right: 55px;padding-left: 55px;">∫∑ SRIDEE SHOP</a>
-    </div>
-    <div class="navbar_menu">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="">iPhone</a>
-        <a href="">iPad</a>
-        <a href="">AirPods</a>
-        <a href="">Contact</a>
-    </div>
-    <div class="navbar_log">
-        <a href="{% url 'cart' %}"><i class="fa-solid fa-bag-shopping" style="margin-top: 2px;" ></i></a>
-        {% if user.is_authenticated %}
-        <a href="" style="padding: 14px 50px;">{{user.username}}</a>
-        {% else %}
-        <a href="">Login</a>
-        <a href="">Sign up</a>
-        {% endif %}
-    </div>
-</div>
 
-<div class="parent" style="margin-top: 100px;">
-    <div class="div1" >
-        <img src="{{photo.image.url}}" style="width: 100%;">
+
+<body>
+    
+{% block content %}
+
+    <div class="mobile">
+        
     </div>
-    <div class="div2">
-        <h3>{{photo.name}}</h3>
-        <h3 style="margin-top: -40px;font-size: 23px;color: salmon;font-weight: 400;">{{photo.presub}}</h3>
-    </div>
-    <div class="div3">
-        <p style="margin: auto 45px;">&nbsp;&nbsp;&nbsp;&nbsp;{{photo.description}}</p>
-    </div>
-    <div class="div4">
-        <p>ราคา {{photo.price}}฿</p>
-        <div class="inbutton">
-            <form action="{% url 'addon' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="pk" value="{{photo.pk}}">
-                <input type="hidden" name="name" value="{{photo.name}}">
-                <input type="hidden" name="price" value="{{photo.price}}">
-                <button class="button" style="padding: 15px 45px;margin-right: 5px;">Buy Now</button>
-            </form> 
-            <form action="{% url 'add' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="pk" value="{{photo.pk}}">
-                <input type="hidden" name="name" value="{{photo.name}}">
-                <input type="hidden" name="price" value="{{photo.price}}">
-                <button class="button">Add to Card</button>
-            </form> 
+    
+    <div class="com">
+        
+        <div class="parent" style="margin-top: 100px;">
+            <div class="div1">
+                <img src="{{photo.image.url}}" style="width: 100%;">
+            </div>
+            <div class="div2">
+                <h3>{{photo.name}}</h3>
+                <h3 style="margin-top: -40px;font-size: 23px;color: salmon;font-weight: 400;">{{photo.presub}}</h3>
+            </div>
+            <div class="div3">
+                <p style="margin: auto 45px;">&nbsp;&nbsp;&nbsp;&nbsp;{{photo.description}}</p>
+            </div>
+            <div class="div4">
+                <p>ราคา {{photo.price}}฿</p>
+                <div class="inbutton">
+                    <form action="{% url 'addon' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="pk" value="{{photo.pk}}">
+                        <input type="hidden" name="name" value="{{photo.name}}">
+                        <input type="hidden" name="price" value="{{photo.price}}">
+                        <button class="button" style="padding: 15px 45px;margin-right: 5px;">Buy Now</button>
+                    </form>
+                    <form action="{% url 'add' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="pk" value="{{photo.pk}}">
+                        <input type="hidden" name="name" value="{{photo.name}}">
+                        <input type="hidden" name="price" value="{{photo.price}}">
+                        <button class="button">Add to Card</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="center">
-    <p style="background-color: #dfdfdf;font-size: 1;margin: 50px 10%;">.</p>
-    <h3 style="margin-top: 60px; margin-bottom: 0px;">สินค้าใหม่ล่าสุด</h3>
-</div>
-
-<div class="container">
-    <div class="row">
-        {% for i in rec %}
-        <div class="column">
-            <a href="{% url 'photo' i.id %}"><img src="{{i.image.url}}" class="image" style="width:100%;background-color: white;"></a>
-            <p style="text-align: center;margin-bottom: -18px;font-size: 11px;color: orangered;">{{i.presub}}</p>
-            <p style="text-align: center;margin-bottom: 11px;">{{i.name}}</p>
-            <p style="text-align: center;margin: -10px 0px;">฿{{i.price}}</p>
-            </p>
-        </div>
-        {% endfor %}
+    
+    
+    
+    
+    <div class="center">
+        <p style="background-color: #dfdfdf;font-size: 1;margin: 50px 10%;">.</p>
+        <h3 style="margin-top: 60px; margin-bottom: 0px;">สินค้าใหม่ล่าสุด</h3>
     </div>
-</div>
+    
+    <div class="container">
+        <div class="row2">
+            {% for i in rec %}
+            <div class="column2">
+                <a href="{% url 'photo' i.id %}"><img src="{{i.image.url}}" class="image"
+                    style="width:100%;background-color: white;"></a>
+                    <p class="p_i">{{i.presub}}</p>
+                    <p class="p_n">{{i.name}}</p>
+                    <p class="p_p">฿{{i.price}}</p>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock content %}
+
+</body>
+
+</html>

@@ -36,7 +36,7 @@ def index(request):
 def product_detail(request, pk):
     photo = Product_list.objects.get(id=pk)
     recom = Product_list.objects.all()
-    return render(request, 'product_detail.html', {'photo': photo, "rec":recom[0:5]})
+    return render(request, 'product_detail.html', {'photo': photo, "rec":recom[0:6]})
 
 def cart (request):
     list_item = []

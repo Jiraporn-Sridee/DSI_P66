@@ -7,6 +7,39 @@ h2 {
     font-weight: 400;
 }
 
+
+.navbar_m {
+    position: fixed;
+    overflow: hidden;
+    background-color: #424245;
+    display: none;
+    bottom: 0;
+    font-weight: 300;
+    width: 100%;
+}
+
+.navbar_menu_m {
+    display: inline-flex;
+    margin: auto;
+}
+
+.navbar_m a {
+    /* float: left; */
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.navbar_m a:hover {
+    background: rgb(77 77 77);
+    color: rgb(255, 255, 255);
+}
+
+
+
 .top_h {
     margin-top: 70px;
 }
@@ -22,15 +55,6 @@ body {
     background-color: #ffffff;
 }
 
-.navbar {
-    position: fixed;
-    overflow: hidden;
-    background-color: #424245;
-    display: flex;
-    top: 0;
-    font-weight: 300;
-    width: 100%;
-}
 
 .navbar_menu {
     display: inline-flex;
@@ -43,6 +67,15 @@ body {
     justify-content: center;
 }
 
+.navbar {
+    position: fixed;
+    overflow: hidden;
+    background-color: #424245;
+    display: flex;
+    top: 0;
+    font-weight: 300;
+    width: 100%;
+}
 .navbar a {
     /* float: left; */
     display: block;
@@ -68,6 +101,11 @@ body {
     display: inline-flex;
 
 
+}
+
+.logo a {
+    padding-right: 55px;
+    padding-left: 55px;
 }
 
 .logo a:hover {
@@ -186,11 +224,19 @@ body {
         margin: 23px 5px;
         padding: 0px 10px;
     }
-    .logo {
+    .navbar_m {
+        display: flex;
+    }
+    .navbar_m a {
+        font-size: 13px;
+        margin: 23px 5px;
+        padding: 0px 10px;
+    }
+    .navbar_menu {
         display: none;
     }
-    .navbar_log {
-        display: none;
+    .logo {
+        margin: auto;
     }
 
     .column2 {

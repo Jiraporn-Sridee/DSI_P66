@@ -64,3 +64,15 @@
   .inbutton {
     display: flex;
   }
+
+  @media screen and (max-width: 400px) {
+    .div1 {
+        grid-area: 1 / 1 / 1 / 6;
+    }
+    .com {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+  }
