@@ -30,7 +30,7 @@ def index(request):
     return render(
         request,
         template_name='index.html',
-        context={"rec":item[0:5],"best":best, "fe":fe}
+        context={"rec":item[0:6],"best":best, "fe":fe}
     )
 
 def product_detail(request, pk):
