@@ -36,7 +36,7 @@ def index(request):
 def product_detail(request, pk):
     photo = Product_list.objects.get(id=pk)
     recom = Product_list.objects.all()
-    return render(request, 'product_detail.html', {'photo': photo, "rec":recom[0:6]})
+    return render(request, 'product_detail.html', {'photo': photo, "rec":recom[0:6], "cssc":"det"})
 
 def cart (request):
     list_item = []
@@ -73,7 +73,8 @@ def cart (request):
         'price_total': sum(info_item[0]),
         "mobile":"0962139949",
         "amount": float(sum(info_item[0])),
-        "form":form}
+        "form":form,
+        "cssc":"cart"}
     return render(request, 'cart.html', context)
 
 data = []

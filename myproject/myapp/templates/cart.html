@@ -1,41 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
 
 
 
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" type="text/css" href='{% static "css/home.css" %}'>
-    <link rel="stylesheet" type="text/css" href='{% static "css/cart.css" %}'>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e344495af0.js" crossorigin="anonymous"></script>
-</head>
-
 
 <body>
 
-    <div class="navbar">
-        <div class="logo">
-            <a href="" style="padding-right: 55px;padding-left: 55px;">∫∑ SRIDEE SHOP</a>
-        </div>
-        <div class="navbar_menu">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="">iPhone</a>
-            <a href="">iPad</a>
-            <a href="">AirPods</a>
-            <a href="">Contact</a>
-        </div>
-        <div class="navbar_log">
-            <a href="{% url 'cart' %}"><i class="fa-solid fa-bag-shopping" style="margin-top: 2px;" ></i></a>
-            {% if user.is_authenticated %}
-            <a href="" style="padding: 14px 50px;">{{user.username}}</a>
-            {% else %}
-            <a href="">Login</a>
-            <a href="">Sign up</a>
-            {% endif %}
-        </div>
-    </div>
+    {% block content %}
     <div class="center" style="margin-top: 90px;">
         <h1 style="font-weight: 300;">รายการในกระเป๋าของคุณ</h1>
     </div>
@@ -112,5 +83,6 @@
         </div>
         {% endif %}
 
+    {% endblock content %}
 </body>
 
