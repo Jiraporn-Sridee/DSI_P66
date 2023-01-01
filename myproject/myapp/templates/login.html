@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div style="display: flex;justify-content: center;">
+
+    <form method="post">
+        {% csrf_token %}
+        <h2 style="margin-top: 145px; text-align: center; font-weight: 400;">Login เข้าสู่ระบบ</h2>
+        <div class="containerF">
+
+            <div style="margin: 20px 15px;">
+                <div class="forms">
+                    {{ form.username|as_crispy_field }}
+                    {{ form.password|as_crispy_field }}
+                </div>
+                {% if error %}
+                <li style="color:#ff8181">{{error}}</li>
+                {% endif %}
+                <div class="bot">
+                    <button type="submit" id="submit">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+{% endblock %}

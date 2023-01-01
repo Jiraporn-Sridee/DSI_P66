@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myapp import views
+from myapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('transaction', views.transactionview, name='transaction'),
     path('detail_transaction/<tran>', views.detail_transaction, name='detail_transaction'),
 
+    path('login', customerloginView.as_view(), name="customerlogin"),
     path('qr_mobile/<mobile>/<amount>/qr.png', views.get_qr, name='qr'),
     path('qr_nid/<nid>/<amount>/', views.get_qr, name='qr'),
     path('ct', views.createTransaction, name='ct'),

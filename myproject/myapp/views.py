@@ -33,6 +33,28 @@ def index(request):
         context={"rec":item[0:6],"best":best, "fe":fe}
     )
 
+class customerloginView(FormView):
+    template_name = 'login.html'
+    form_class = customerloginForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data["password"]
+        usr = authenticate(username=username, password=password)
+        if usr is not None and customer.objects.filter(user=usr).exists():
+            login(self.request, usr)
+        else:
+            return render(self.request, self.template_name, {"form": self.form_class, "error": "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง"})
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        if "next" in self.request.GET:
+            next_url = self.request.GET.get("next")
+            return next_url
+        else:
+            return self.success_url
+
 def product_detail(request, pk):
     photo = Product_list.objects.get(id=pk)
     recom = Product_list.objects.all()
