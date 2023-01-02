@@ -18,12 +18,11 @@ def index(request):
             "/static/media/be4.webp",
             "/static/media/be5.webp"
         ]
-    fe = ["/static/media/fe1.webp",
-            "/static/media/fe2.webp",
-            "/static/media/fe3.webp",
-            "/static/media/fe4.webp",
-            "/static/media/fe5.webp"
-        ]
+    fe = [["/static/media/fe1.webp", "tran"],
+        ["/static/media/fe2.webp", "book"],
+        ["/static/media/fe3.webp", "slim"],
+        ["/static/media/fe4.webp", "leader"],
+        ["/static/media/fe5.webp", "waterp"]]
     
     item = Product_list.objects.all()
     print(item)
