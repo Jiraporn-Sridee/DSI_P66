@@ -26,7 +26,11 @@ urlpatterns = [
     path('addon/',views.add_cart, name='addon'),
     path('cart/',views.cart, name='cart'),
     path('transaction', views.transactionview, name='transaction'),
+    path('logout/',customerlogoutView.as_view(),name='customerlogout'),
     path('detail_transaction/<tran>', views.detail_transaction, name='detail_transaction'),
+    path('createprofile/',CreateProfile.as_view(), name='createprofile'),
+    path('profile/',views.profile, name='profile'),
+    path('register/', customerregistrationView.as_view(), name="customerregistration"),
 
     path('login', customerloginView.as_view(), name="customerlogin"),
     path('qr_mobile/<mobile>/<amount>/qr.png', views.get_qr, name='qr'),

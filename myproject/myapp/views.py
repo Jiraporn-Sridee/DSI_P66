@@ -61,6 +61,22 @@ def iphone_view(request, type_="index"):
     recom = Product_list.objects.all()
     return render(request, 'iphone.html', {'photo': photo, "rec":recom[0:6], "cssc":"ip", "fe":fe, "type_":types})
 
+class customerregistrationView(CreateView):
+    template_name = 'register.html'
+    form_class = customerregistrationForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        email = form.cleaned_data.get('email')
+        user = User.objects.create_user(username, email, password)
+        form.instance.user = user
+        login(self.request, user)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('home')
 
 class customerloginView(FormView):
     template_name = 'login.html'
@@ -83,6 +99,39 @@ class customerloginView(FormView):
             return next_url
         else:
             return self.success_url
+
+class customerlogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('home')
+
+class CreateProfile(CreateView):
+    template_name = 'profile.html'
+    form_class = ProfileForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('home')
+
+def profile(request):
+    try:
+        instance = get_object_or_404(customer, user=request.user)
+        form = ProfileForm(request.POST or None, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            context = {
+                'form': form,
+                'user': request.user
+            }
+            return render(request, 'profile.html', context)
+    except:
+        return redirect('createprofile')
 
 def product_detail(request, pk):
     photo = Product_list.objects.get(id=pk)

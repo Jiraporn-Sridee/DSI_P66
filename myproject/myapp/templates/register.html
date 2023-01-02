@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<body>
+    {% block content %}
+    <h3 class="center">สมัครสมาชิก</h3>
+    <div style="display: grid; justify-content: center;" >
+        <form method="post">
+            <div class="containerF" style="padding: 10px;">
+                <div style="display: grid;">
+                    {% csrf_token %}
+                    {{ form.name|as_crispy_field }}
+                    {{ form.surname|as_crispy_field }}
+                    {{ form.gender|as_crispy_field }}
+                    {{ form.country|as_crispy_field }}
+                    {{ form.phone|as_crispy_field }}
+                    {{ form.address|as_crispy_field }}
+                    {{ form.email|as_crispy_field }}
+                    {{ form.username|as_crispy_field }}
+                    {{ form.password|as_crispy_field }}
+                    <button type="submit" id="submit">Done</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% endblock content %}
+</body>

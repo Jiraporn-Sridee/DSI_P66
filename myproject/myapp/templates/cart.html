@@ -23,7 +23,7 @@
                     {% if user.is_authenticated %}
                     <a href="">ประวัติการสั่งซื้อ</a>
                     {% else %}
-                    <a href="">เข้าสู่ระบบเพื่อ ดูประวัติการสั่งซื้อ</a>
+                    <a href="{% url 'customerlogin' %}">เข้าสู่ระบบเพื่อ ดูประวัติการสั่งซื้อ</a>
                     {% endif %}
                 </div>
             </div>

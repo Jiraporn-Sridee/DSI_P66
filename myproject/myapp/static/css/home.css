@@ -7,6 +7,7 @@ h2 {
     font-weight: 400;
 }
 
+label {display: none;}
 
 .navbar_m {
     position: fixed;
@@ -208,41 +209,42 @@ body {
 .containerF input[type=text],
 select {
     width: 300px;
-    padding: 8px 20px;
+    padding: 8px 10px;
+    margin: 2px;
     display: inline-block;
-    border: 1px solid #417E77;
+    border: 1px solid #8f8f8f;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 .containerF input[type=password] {
     width: 300px;
-    padding: 8px 20px;
-    margin: 8px 0;
+    padding: 8px 10px;
+    margin: 2px;
     display: inline-block;
-    border: 1px solid #417E77;
+    border: 1px solid #8f8f8f;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 .containerF select {
-    width: 30%;
+    width: 100%;
     padding: 9px 20px;
     margin: 8px 0;
-    color: #A7D8D5;
+    color: #ffffff;
     display: inline-block;
-    background-color: #417E77;
-    border: 1px solid #417E77;
+    background-color: #626262;
+    border: 1px solid #434343;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 .containerF input[type=email] {
-    width: 100%;
-    padding: 8px 20px;
-    margin: 8px 0;
+    width: 300px;
+    padding: 8px 10px;
+    margin: 2px;
     display: inline-block;
-    border: 1px solid #417E77;
+    border: 1px solid #8f8f8f;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -270,7 +272,7 @@ select {
 }
 
 .containerF input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #8b8b8b;
 }
 
 .containerF {
@@ -278,7 +280,7 @@ select {
     padding: 4px;
     border-radius: 10px;
     justify-content: center;
-    background-color: #424245;
+    background-color: #8c8c8c;
 }
 
 .bot {
@@ -292,10 +294,138 @@ select {
     display: none;
 }
 
+.btn {
+    color: #fff;
+    background: #424245;
+    border: none;
+    font-weight: 300;
+    font-size: 17px;
+    padding: 0px 25px;
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+
+.btn:hover {
+    background: #5b5b61;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-right: 10px;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+.close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #e3e3e3;
+    color: black;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.modal-body {
+    display: grid;
+    border-radius: 0px 0px 8px 8px;
+    background: #595959;
+}
+
+.modal-body a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.modal-body a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #888;
+}
+
+.logout_ a {
+    background: #ff3915;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.logout_ a:hover {
+    background: #ff6347;
+}
+
+
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+
 @media screen and (max-width: 420px) {
     .phone {
         display: block;
     }
+
     h3 {
         font-size: 20px;
     }
@@ -362,11 +492,20 @@ select {
         font-size: 17px;
     }
 
+    .modal-content {
+        margin-right: unset;
+        margin: auto;
+    }
+
+    .modal {
+        padding-top: 80px;
+    }
+
 }
 
 @media screen and (max-width: 400px) {
     .p_n {
         font-size: 15px;
     }
-    
+
 }

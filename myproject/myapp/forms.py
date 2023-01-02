@@ -23,15 +23,15 @@ class Createtransaction(forms.Form):
 class customerregistrationForm(forms.ModelForm):
     GENDER = (('', 'Choose...'), ('M', 'Male'),
               ('F', 'Female'), ('L', 'LGBTQ'))
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First name', 'style':'background-color: #417E77; '}))
-    surname = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last name', 'style':'background-color: #417E77; '}))
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First name'}))
+    surname = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last name'}))
     gender = forms.ChoiceField(choices=GENDER)
-    country = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Country', 'style':'background-color: #417E77; '}))
-    phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Phone number', 'style':'background-color: #417E77; '}))
-    address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Address', 'style':'background-color: #417E77; '}))
-    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email', 'style':'background-color: #417E77; '}))
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username', 'style':'background-color: #417E77; '}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'style':'background-color: #417E77; '}))
+    country = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Country'}))
+    phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Phone number'}))
+    address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Address'}))
+    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
     class Meta:
         model = customer
@@ -53,13 +53,13 @@ class customerregistrationForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     GENDER = (('', 'Choose...'), ('M', 'Male'),
               ('F', 'Female'), ('L', 'LGBTQ'))
-    name = forms.CharField(widget=forms.TextInput(attrs={'style':'background-color: #417E77; '}))
-    surname = forms.CharField(widget=forms.TextInput(attrs={ 'style':'background-color: #417E77; '}))
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First name'}))
+    surname = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last name'}))
     gender = forms.ChoiceField(choices=GENDER)
-    country = forms.CharField(widget=forms.TextInput(attrs={'style':'background-color: #417E77; '}))
-    phone = forms.CharField(widget=forms.TextInput(attrs={'style':'background-color: #417E77; '}))
-    address = forms.CharField(widget=forms.TextInput(attrs={'style':'background-color: #417E77; '}))
-    email = forms.CharField(widget=forms.EmailInput(attrs={'style':'background-color: #417E77; '}))
+    country = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Country'}))
+    phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Phone number'}))
+    address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Address'}))
+    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
     class Meta:
         model = customer
         fields = ['name', 'surname', 'gender', 'country','phone', 'address','email']
