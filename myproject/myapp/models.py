@@ -4,16 +4,23 @@ from django.contrib.auth.models import User
 
 class Product_list(models.Model):
     types = (
-        ("14", "iPhone 14"),
-        ("14+", "iPhone 14 Plus"),
-        ("14P", "iPhone 14 Pro"),
-        ("14PM", "iPhone 14 Pro Max"),
+        ("ip", "iPhone"),
+        ("pad", "iPad"),
+        ("ap", "AirPods"),
+        )
+    type_c = (
+        ("tran", "เคสใส"),
+        ("book", "เคสฝาพับ"),
+        ("slim", "เคสบาง"),
+        ("leader", "เคสสายคล้อง"),
+        ("waterp", "เคสกันน้ำ"),
         )
 
     name = models.CharField(max_length=50)
     presub = models.CharField(max_length=30, null=True, blank=True)
     description = models.CharField(max_length=1000, null=True, blank=True)
     type_product = models.CharField(max_length=4, choices=types)
+    type_case = models.CharField(max_length=10, choices=type_c , blank=True)
     price = models.IntegerField()
     image=models.ImageField(upload_to='product_images')
     def __str__(self):

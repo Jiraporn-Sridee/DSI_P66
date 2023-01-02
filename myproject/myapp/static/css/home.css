@@ -41,7 +41,7 @@ h2 {
 
 
 .top_h {
-    margin-top: 70px;
+    margin-top: unset;
 }
 
 .img1 {
@@ -288,13 +288,20 @@ select {
     top: 18px;
 }
 
+.phone {
+    display: none;
+}
+
 @media screen and (max-width: 420px) {
+    .phone {
+        display: block;
+    }
     h3 {
         font-size: 20px;
     }
 
     .top_h {
-        margin-top: 100px;
+        margin-top: 35px;
     }
 
     .con_type {

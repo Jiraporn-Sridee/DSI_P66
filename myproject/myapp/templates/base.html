@@ -21,7 +21,7 @@
     <div class="navbar_m">
         <div class="navbar_menu_m">
             <a href="{% url 'home' %}">Home</a>
-            <a href="">iPhone</a>
+            <a href="{% url 'iphone' 'index' %}">iPhone</a>
             <a href="">iPad</a>
             <a href="">AirPods</a>
             <a href="">Contact</a>
@@ -34,7 +34,7 @@
         </div>
         <div class="navbar_menu">
             <a href="{% url 'home' %}">Home</a>
-            <a href="">iPhone</a>
+            <a href="{% url 'iphone' 'index' %}">iPhone</a>
             <a href="">iPad</a>
             <a href="">AirPods</a>
             <a href="">Contact</a>
@@ -49,7 +49,9 @@
             {% endif %}
         </div>
     </div>
+    <h1 class="top_h">&nbsp;</h1>
     {% block content %}
 
     {% endblock content %}
+    <h1 class="phone">&nbsp;</h1>
 </body>

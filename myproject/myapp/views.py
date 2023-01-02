@@ -33,6 +33,35 @@ def index(request):
         context={"rec":item[0:6],"best":best, "fe":fe}
     )
 
+def iphone_view(request, type_="index"):
+    fe = [["/static/media/fe1.webp", "tran"],
+        ["/static/media/fe2.webp", "book"],
+        ["/static/media/fe3.webp", "slim"],
+        ["/static/media/fe4.webp", "leader"],
+        ["/static/media/fe5.webp", "waterp"]
+    ]
+    if type_ != "index":
+        photo = Product_list.objects.filter(type_case=type_, type_product="ip")
+    else:
+        photo = Product_list.objects.filter(type_product="ip")
+
+    if type_ == "tran":
+        types = "เคสใส"
+    elif type_ == "book":
+        types = "เคสฝาพับ"
+    elif type_ == "slim":
+        types = "เคสบาง"
+    elif type_ == "leader":
+        types = "เคสสายคล้อง"
+    elif type_ == "waterp":
+        types = "เคสกันน้ำ"
+    else:
+        types = "none"
+
+    recom = Product_list.objects.all()
+    return render(request, 'iphone.html', {'photo': photo, "rec":recom[0:6], "cssc":"ip", "fe":fe, "type_":types})
+
+
 class customerloginView(FormView):
     template_name = 'login.html'
     form_class = customerloginForm

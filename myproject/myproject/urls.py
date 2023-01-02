@@ -21,6 +21,7 @@ from myapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
+    path('iphone/<str:type_>', views.iphone_view, name='iphone'),
     path('add/',views.add_to_cart, name='add'),
     path('addon/',views.add_cart, name='addon'),
     path('cart/',views.cart, name='cart'),
