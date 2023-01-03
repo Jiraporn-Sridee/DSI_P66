@@ -307,7 +307,8 @@ def transactionview(request):
     
     transaction = zip(transaction, title_image)
     context = {
-        "items": transaction
+        "items": transaction,
+        "cssc": "tran"
     }
     return render(request, 'transaction.html', context)
 
