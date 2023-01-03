@@ -1,5 +1,17 @@
 .conta {
     display: block;
-    background-color: blue;
+    background-color: #c6c6c6;
     margin: 20px;
+}
+
+.content {
+    display: flex;
+}
+
+.image {
+    width: 220px;
+}
+
+.text_content {
+    display: block;
 }

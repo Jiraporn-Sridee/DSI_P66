@@ -4,5 +4,25 @@
 <body>
     {% block content %}
 
+
+    <h3 class="center" >ประวัติการสั่งซื้อ</h3>
+    <div class="conta">
+        {% for item, total in items %}
+        <div class="content">
+            <div class="image">
+                <img src="{{item.product.image.url}}" style="width: 100%;">
+            </div>
+            <div class="text_content">
+                <p>{{item.product.name}}</p>
+                <p>ทั้งหมด {{item.quantity}} รายการ {{item.product.price}}฿</p>
+                <p>เป็นจำนวนเงิน {{total}}฿</p>
+                <a href="{% url 'photo' item.product.pk %}">รายระเอียดสินค้า</a>
+
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+
     {% endblock content %}
 </body>

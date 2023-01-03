@@ -4,13 +4,31 @@
 
 <body>
     {% block content %}
-    <div class="conta">
-    {% for item, image in items %}
 
-        <img src="{{image.product.image.url}}">
-        <h1>{{item.transaction}}</h1>
+    <h3 class="center" >ประวัติการสั่งซื้อ</h3>
+    {% if check %}
+    <div class="conta">
+    {% for item, image, qua in items %}
+        <div class="content">
+            <div class="image">
+                <img src="{{image.product.image.url}}" style="width: 100%;">
+            </div>
+            <div class="text_content">
+                <p>สั่งซื้อวันที่ {{item.created_at}}</p>
+                <p>ทั้งหมด {{qua}} รายการ</p>
+                <p>เป็นจำนวนเงิน {{item.total}}฿</p>
+                <a href="{% url 'detail_transaction' item.transaction %}">ดูเพิ่มเติม</a>
+
+            </div>
+        </div>
         
         {% endfor %}
     </div>
+    {% else %}
+    <div class="center">
+        <h2 style="font-size: 50px; font-weight: 300;">ไม่มีประวัติการสั่งซื้อ</h2>
+        <a href="{% url 'home' %}" style="font-size: 30px; color: #205eff; text-decoration: none;">เลือกซื้อสินค้าต่อ</a>
+    </div>
+    {% endif %}
     {% endblock content %}
 </body>

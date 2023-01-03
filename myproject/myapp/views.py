@@ -300,15 +300,21 @@ def createTransaction (request):
 
 def transactionview(request):
     user = request.user.customer
+    check = False
     transaction = Transaction.objects.filter(customer=user)
     title_image = []
+    total_quan = []
     for i in transaction:
         title_image.append(Order.objects.filter(transaction=i)[0])
-    
-    transaction = zip(transaction, title_image)
+        list_item = (list(Order.objects.filter(transaction=i).values('quantity')))
+        total_quan.append(sum(d['quantity'] for d in list_item))
+    if sum(total_quan) > 0:
+        check = True
+    transaction = zip(transaction, title_image, total_quan)
     context = {
         "items": transaction,
-        "cssc": "tran"
+        "cssc": "tran",
+        "check": check
     }
     return render(request, 'transaction.html', context)
 
@@ -322,7 +328,8 @@ def detail_transaction(request, tran):
     print(total_price)
     list_product = zip(list_product ,total_price)
     context = {
-        "items": list_product
+        "items": list_product,
+        "cssc": "tran"
     }
     return render(request, "list_order.html", context)
 
